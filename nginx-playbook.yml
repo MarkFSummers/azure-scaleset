@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Create index.html with hostname and joke
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+          <head><title>Hello World</title></head>
+          <body>
+            <h1>Hello from {{ ansible_hostname }}</h1>
+            <p>Joke of the Day:</p>
+            <p>{{ lookup('url', 'https://official-joke-api.appspot.com/random_joke') }}</p>
+          </body>
+          </html>
+
+    - name: Ensure Nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
