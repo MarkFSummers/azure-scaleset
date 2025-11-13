@@ -17,7 +17,9 @@
           <body>
             <h1>Hello from {{ ansible_hostname }}</h1>
             <p>Joke of the Day:</p>
-            <p>{{ lookup('url', 'https://official-joke-api.appspot.com/random_joke') }}</p>
+            <p>{{ lookup('url', 'https://official-joke-api.appspot.com/random_joke') }}</p>            
+            <hr>
+            <p>Configured on: {{ ansible_date_time.date }} at {{ ansible_date_time.time }}</p
           </body>
           </html>
 
