@@ -9,5 +9,5 @@ runcmd:
   # Clone your GitHub repo (replace with your actual repo URL)
   - git clone https://github.com/MarkFSummers/azure-scaleset.git /opt/ansible
   # Run the Ansible playbook
-  - ansible-playbook /opt/ansible/nginx-playbook.ym
+  - ansible-playbook /opt/ansible/nginx-playbook.yml
 
